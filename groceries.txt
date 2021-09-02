@@ -3,4 +3,4 @@
 3.nuts
 4.rice
 5.washing powder
-7.snacks
+6.snacks
