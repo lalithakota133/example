@@ -1,0 +1,101 @@
+<!Doctype html>
+<html>
+<head>
+	
+     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <form [formGroup]="wholeForm" autocomplete="off">
+<div class="container">
+<header class="heading"> UPDATE LIBRARIAN</header>
+	<div class="row ">
+         <div class="col-sm-12">
+             <div class="row">
+			     <div class="col-xs-4">
+          	         <label class="firstname">First Name :</label> </div>
+		         <div class="col-xs-8">
+                <input type="text"  pattern="[a-zA-Z ]*"  id="fname" placeholder="Update First Name" class="form-control first " formControlName="finame" [(ngModel)]="updatelibrarian.fname">
+              <span class=spanfname *ngIf="wholeForm.controls['finame'].errors?.pattern && wholeForm.controls['finame'].touched">first name is not in format</span>
+
+                </div>
+		      </div>
+		 </div>
+        <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="lastname">Last Name :</label></div>
+				<div class ="col-xs-8">
+             <input type="text"   pattern="[a-zA-Z ]*" name="lname" id="lname" placeholder="Update  Last Name" class="form-control last" formControlName="liname" [(ngModel)]="updatelibrarian.lname">
+        <span class=spanlname *ngIf="wholeForm.controls['liname'].errors?.pattern && wholeForm.controls['liname'].touched">last name is not in format</span>
+                <span class=spanemail></span>
+                </div>
+		     </div>
+		 </div>
+    
+		 <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="mail" >Email :</label></div>
+			     <div class="col-xs-8"	>
+
+			          <input type="email"  disabled name="email" placeholder="Enter email" class="form-control" value={{mail}} >
+              </div>
+		     </div>
+		 </div>
+	 
+          <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+                            <label class="pass">Password :</label></div>
+				  <div class="col-xs-8">
+
+			             <input type="password"  pattern="^[A-Za-z]*" name="password" id="password" placeholder="Update Password" formControlName="pass" class="form-control" [(ngModel)]="updatelibrarian.password" >
+                   <span class=spanpass *ngIf="wholeForm.controls['pass'].errors?.pattern && wholeForm.controls['pass'].touched">password is not in format</span>
+                  </div>
+               </div>
+		  </div>
+     <div class="col-sm-12">
+        <div class="row">
+            <div class="col-xs-4">
+                <label class="mail" >Phone:</label></div>
+            <div class="col-xs-8"	>
+                <input type="text" name="phone" pattern="[6-9][0-9]{9}"  id="phone"placeholder="Update Phone Number" class="form-control" formControlName="phonevalid" [(ngModel)]="updatelibrarian.phone" >
+                <span class=spanemail *ngIf="wholeForm.controls['phonevalid'].errors?.pattern && wholeForm.controls['phonevalid'].touched">phone number is not in format</span>
+                 </div>
+        </div>
+    </div>
+         <div class="col-sm-12">
+		     <div class ="row">
+                 <div class="col-xs-4 ">
+			       <label class="gender">Gender:</label>
+				 </div>
+
+			     <div class="col-xs-4 male">
+				     <input type="radio" name="gender"  id="gender1" value="male" formControlName="gender" [(ngModel)]="updatelibrarian.gender">Male
+				 </div>
+
+				 <div class="col-xs-4 female">
+				     <input type="radio"  name="gender" id="gender" value="female"  formControlName="gender" [(ngModel)]="updatelibrarian.gender">Female
+			     </div>
+			 </div>
+
+			<p class="p">Complete the form to enable submit<p>
+				<div class="space">
+					<div>
+						<button class="button" [disabled]="!wholeForm.valid" (click)="update()">Update</button>
+					</div>
+									<div >
+										<button class="button1 float-center" (click)="back()">BACK</button>
+									</div>
+				</div>
+
+             </div>
+	 </div>
+</div>
+<footer>Copyright © DLHS
+
+</footer>
+</form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<body>
+      <div class="sandbox sandbox-correct-pronounciation">
+      <h1 class="heading heading-correct-pronounciation">ADD BOOKS</h1></div>
+
+    <div class="container">
+        <div class="card card-container">
+
+
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" (ngSubmit)="onSubmit()" [formGroup]="addbookForm" autocomplete="off">
+                <span id="reauth-email" class="reauth-email"></span>
+                <div>
+                  <input type="text" id="input"  class="form-control" formControlName="Callno"  placeholder="CALLNO" required  pattern="[A-Z]{1}[/-]{1}[0-9]*"[(ngModel)]="addbook.callno">
+                  <span  *ngIf="addbookForm.controls['Callno'].errors?.required && addbookForm.controls['Callno'].touched" > CALLNO is required. </span>
+                  <span  *ngIf="addbookForm.controls['Callno'].errors?.pattern && addbookForm.controls['Callno'].touched" >Invalid format.[Ex: A-2]</span>
+                </div>
+
+                <div>
+                  <input type="text" id="input" class="form-control"  formControlName="Name" placeholder="NAME"  required pattern="[a-zA-Z\s-,]*"  [(ngModel)]="addbook.name">
+                  <span><div *ngIf="addbookForm.controls['Name'].errors?.required && addbookForm.controls['Name'].touched"> NAME is required.</div></span>
+                  <span><div *ngIf="addbookForm.controls['Name'].errors?.pattern  && addbookForm.controls['Name'].touched">Invalid Format of Name.</div></span>
+                </div>
+
+                <div>
+                  <input type="text" id="input" class="form-control"  formControlName="Author" placeholder="AUTHOR" required pattern="[a-zA-Z\s-,]*" [(ngModel)]="addbook.author">
+                  <div *ngIf="addbookForm.controls['Author'].errors?.required && addbookForm.controls['Author'].touched" > <span>AUTHOR  is required.</span></div>
+                  <div *ngIf="addbookForm.controls['Author'].errors?.pattern && addbookForm.controls['Author'].touched" > <span> Invalid Format of AUTHOR.</span></div>
+                </div>
+
+
+                <div>
+                  <input type="text" id="input" class="form-control"  formControlName="Publisher" placeholder="PUBLISHER" required pattern="[a-zA-Z\s-,]*" [(ngModel)]="addbook.publisher">
+                  <div *ngIf="addbookForm.controls['Publisher'].errors?.required && addbookForm.controls['Publisher'].touched"><span>PUBLISHER is required.</span></div>
+                  <div *ngIf="addbookForm.controls['Publisher'].errors?.pattern && addbookForm.controls['Publisher'].touched"> <span>Invalid Format of PUBLISHER .</span></div>
+                </div>
+
+                <div>
+                  <input type="number" id="input" class="form-control"  formControlName="Quantity" placeholder="QUANTITY" required pattern="[0-9]*" [(ngModel)]=addbook.quantity>
+                  <div *ngIf="addbookForm.controls['Quantity'].errors?.required &&  addbookForm.controls['Quantity'].touched" ><span>  QUANTITY is required.</span></div>
+                  <div *ngIf="addbookForm.controls['Quantity'].errors?.pattern &&  addbookForm.controls['Quantity'].touched" > <span>  QUANTITY is required.</span></div>
+                </div>
+
+                <p class="warn">  <span>Complete the form to enable submit!!  </span></p>
+                <div><button type="submit" class="btn btn-lg btn-primary" [disabled]="!addbookForm.valid" type="submit" (click)="AddBook()">ADD BOOK</button></div>
+                <div><button class="btn btn-lg btn-primary" type="submit" (click)="back()">BACK</button></div>
+
+            </form>
+        </div>
+    </div>
+  </body>
+</html>

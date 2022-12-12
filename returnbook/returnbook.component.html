@@ -1,0 +1,44 @@
+
+<body>
+ <div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">RETURN BOOKS</label>
+        <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab"></label>
+        <div class="login-form">
+            <form [formGroup]=returnForm autocomplete="off">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="user" class="label">Callno</label>
+                    <input id="user" type="text" class="input" formControlName="Callno" required pattern [(ngModel)]="callno">
+                    <span  *ngIf="returnForm.controls['Callno'].errors?.required && returnForm.controls['Callno'].touched" >
+                        CALLNO is required.
+                   </span>
+                   <span  *ngIf="returnForm.controls['Callno'].errors?.pattern && returnForm.controls['Callno'].touched" >
+                    Invalid format.[Ex:a-2]
+               </span>
+                </div>
+                <div class="group">
+                    <label class="label">Student-id</label>
+                    <input id="pass" type="text" class="input" formControlName="studentid"  required  pattern="[0-9]*" [(ngModel)]="Studentid" >
+                    <span class="issue" *ngIf="returnForm.controls['studentid'].errors?.required && returnForm.controls['studentid'].touched" >
+                        STUDENT Id is required.
+                   </span>
+                   <span class="issue" *ngIf="returnForm.controls['studentid'].errors?.pattern && returnForm.controls['studentid'].touched" >
+                    Invalid format.
+               </span>
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Return book" (click)="return()">
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" (click)="back()"value="Back">
+                </div>
+                <div class="hr"></div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<footer>Copyright © DLHS
+    </footer>
+</body>

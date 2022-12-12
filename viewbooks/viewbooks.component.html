@@ -1,0 +1,31 @@
+<body><h1>View Books</h1>
+    <table  class="table  table-sm  table-lightdark" border=1>
+        <thead class="thead-dark">
+        <tr>
+            <th >CallNo</th>
+            <th >Name</th>
+            <th >Author</th>
+            <th >Publisher</th>
+            <th >Quantity</th>
+            <th >Issued</th>
+            <th >Added_date</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr   *ngFor="let view2 of test">
+       
+        <td>{{ view2.callno }}</td>
+        <td>{{ view2.name }}</td>
+        <td>{{ view2.author }}</td>
+        <td>{{ view2.publisher }}</td>
+        <td>{{ view2.quantity }}</td>
+        <td>{{ view2.issued }}</td>
+        <td>{{ view2.added_date }}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div><button type="button" class="but" (click)="back()">Back</button></div>
+
+    </body>
+    
+
